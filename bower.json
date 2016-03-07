@@ -12,10 +12,10 @@
   ],
   "keywords": [
     "Finnish",
-    "Y-Tunnus",
+    "Y-tunnus",
     "alv-tunnus",
-    "VAT number",
-    "Business ID",
+    "vat number",
+    "Business id",
     "Validation"
   ],
   "license": "MIT",
@@ -25,6 +25,7 @@
     "node_modules",
     "bower_components",
     "test",
+    "src",
     "tests"
   ]
 }

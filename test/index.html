@@ -1,0 +1,20 @@
+<html>
+<head>
+    <script src="../dist/finnish-business-ids.min.js"></script>
+</head>
+<body>
+    <h3 id="valid-business-id"></h3>
+    <h3 id="valid-vat-number"></h3>
+    <h3 id="invalid-vat-number"></h3>
+    <h3 id="generate-business-id"></h3>
+    <h3 id="generate-vat-number"></h3>
+    <script>
+        document.getElementById('valid-business-id').textContent = 'Is 2617416-4 valid business id? ' + FinnishBusinessIds.isValidBusinessId('2617416-4')
+        document.getElementById('valid-vat-number').textContent = 'Is FI26174164 valid vat number? ' + FinnishBusinessIds.isValidVatNumber('FI26174164')
+        document.getElementById('invalid-vat-number').textContent = 'Is FI21111111 valid vat number? ' + FinnishBusinessIds.isValidVatNumber('FI21111111')
+        document.getElementById('generate-business-id').textContent = 'random business id ' + FinnishBusinessIds.generateBusinessId()
+        document.getElementById('generate-vat-number').textContent = 'random vat number ' + FinnishBusinessIds.generateVatNumber()
+    </script>
+
+</body>
+</html>

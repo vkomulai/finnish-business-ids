@@ -1,10 +1,10 @@
-Finnish IBAN and reference number validator/generator
-=====================================================
+Finnish business id and vat number validator/generator
+======================================================
 
 [![Build Status](https://travis-ci.org/vkomulai/finnish-business-ids.svg?branch=master)](https://travis-ci.org/vkomulai/finnish-business-ids)
 
-- A micro Javascript library for validating and creating Finnish IBAN bank account numbers and reference numbers
-- Vanilla JS (ES6), no dependencies
+- A micro Javascript library for validating and creating Finnish business ids (y-tunnus, alv-numero)
+- Vanilla JS (ES6), lightweight, no dependencies
 - ES6 + Babel for browser compatibility
 
 Installation
@@ -25,7 +25,7 @@ Node.js
 
 ``` js
 const FinnishBusinessIds = require('finnish-business-ids')
-FinnishBusinessIds.isValidFinnishIBAN('FI9080002627761348')
+FinnishBusinessIds.isValidBusinessId('2617416-4')
 ```
 
 Browser: Writes FinnishBusinessIds into global namespace.
@@ -33,7 +33,7 @@ Browser: Writes FinnishBusinessIds into global namespace.
 ``` html
 <script src="finnish-business-ids.min.js"></script>
 <script>
-  FinnishBusinessIds.isValidFinnishIBAN('FI9080002627761348')
+  FinnishBusinessIds.isValidBusinessId('2617416-4')
 </script>
 
 ```
@@ -42,47 +42,35 @@ Examples
 --------
 
 ```sh
-# Valid IBAN returns true, allows whitespace
-FinnishBusinessIds.isValidFinnishIBAN('FI9080002627761348')
-FinnishBusinessIds.isValidFinnishIBAN('FI 90 800026 2776 1348')
-
-# Validate any IBAN
-FinnishBusinessIds.isValidIBAN('FI 90 800026 2776 1348')
+# Valid isValidVatNumber returns true, allows whitespace
+FinnishBusinessIds.isValidBusinessId('2617416-4')
+FinnishBusinessIds.isValidVatNumber('FI26174164')
 ```
 
 ```sh
-# Valid reference number returns true, allows whitespace
-# !! Reference number type must be a string !!
-FinnishBusinessIds.isValidFinnishRefNumber('1511890656')
-FinnishBusinessIds.isValidFinnishRefNumber('15118 90656')
-```
+# Generate a Finnish business id (y-tunnus), format: 1234567-8
+FinnishBusinessIds.generateBusinessId()
+// '2617416-4'
 
-```sh
-# Generate a Finnish reference number
-FinnishBusinessIds.generateFinnishRefNumber()
-// '6173672848'
-```
-
-```sh
-# Generate a Finnish IBAN
-FinnishBusinessIds.generateFinnishRefIBAN()
-// 'FI9080002627761348'
+# Generate a Finnish vat number (alv-numero), format: FI12345678
+FinnishBusinessIds.generateVatNumber()
+// 'FI26174164'
 ```
 
 Functions
 ---------
 
-##### isValidFinnishRefNumber(referenceNumber) : string --> boolean
--Validates parameter given reference number
+##### isValidBusinessId(businessId) : string --> boolean
+-Validates parameter given business id (y-tunnus), format: 1234567-8
 
-##### isValidFinnishIBAN(ibanNumber) : string --> boolean
--Validates parameter given Finnish IBAN number
+##### isValidVatNumber(vatNumber) : string --> boolean
+-Validates parameter given Finnish vat number (alv-numero), format: FI12345678
 
-##### generateFinnishRefNumber() : void --> string
--Generates a random 10 char long Finnish reference number
+##### generateBusinessId() : void --> string
+-Generates a random Finnish business id
 
-##### generateFinnishIBAN() : void --> string
--Generates a random Finnish IBAN number
+##### generateVatNumber() : void --> string
+-Generates a random Finnish vat number
 
 Building
 --------
