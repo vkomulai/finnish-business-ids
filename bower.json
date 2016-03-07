@@ -1,0 +1,30 @@
+{
+  "name": "finnish-business-ids",
+  "main": "./dist/finnish-business-ids.min.js",
+  "version": "1.0.0",
+  "authors": [
+    "vkomulai <ville.komulainen@iki.fi>"
+  ],
+  "description": "A micro Javascript library for validating and creating Finnish business ids (Y-tunnus, alv-numero)",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "Finnish",
+    "Y-Tunnus",
+    "alv-tunnus",
+    "VAT number",
+    "Business ID",
+    "Validation"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/vkomulai/finnish-business-ids",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
