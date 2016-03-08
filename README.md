@@ -3,7 +3,7 @@ Finnish business id and vat number validator/generator
 
 [![Build Status](https://travis-ci.org/vkomulai/finnish-business-ids.svg?branch=master)](https://travis-ci.org/vkomulai/finnish-business-ids)
 
-- A micro Javascript library for validating and creating Finnish business ids (y-tunnus, alv-numero)
+- A micro library for validating and creating Finnish business ids (y-tunnus, alv-numero)
 - Vanilla JS (ES6), lightweight, no dependencies
 - ES6 + Babel for browser compatibility
 
@@ -41,10 +41,14 @@ Browser: Writes FinnishBusinessIds into global namespace.
 Examples
 --------
 
+- [Example page for testing purposes](test/index.html)
+
 ```sh
 # Valid isValidVatNumber returns true, allows whitespace
 FinnishBusinessIds.isValidBusinessId('2617416-4')
+// true
 FinnishBusinessIds.isValidVatNumber('FI26174164')
+// true
 ```
 
 ```sh
