@@ -1,3 +1,4 @@
+//  @flow
 'use strict';
 const finnishBusinessIds = require('../src/finnish-business-ids'),
       expect = require('chai').expect
@@ -7,14 +8,6 @@ describe('finnish-business-ids', () => {
   describe('#isValidBusinessId', () => {
     it('Should fail when given empty String', () => {
       expect(finnishBusinessIds.isValidBusinessId('')).to.equal(false)
-    })
-
-    it('Should fail when given undefined', () => {
-      expect(finnishBusinessIds.isValidBusinessId(undefined)).to.equal(false)
-    })
-
-    it('Should fail when given null String', () => {
-      expect(finnishBusinessIds.isValidBusinessId(null)).to.equal(false)
     })
 
     it('Should fail when given too short business ID', () => {
@@ -45,22 +38,6 @@ describe('finnish-business-ids', () => {
   describe('#isValidVatNumber', () => {
     it('Should fail when given empty String', () => {
       expect(finnishBusinessIds.isValidVatNumber('')).to.equal(false)
-    })
-
-    it('Should fail when given undefined', () => {
-      expect(finnishBusinessIds.isValidVatNumber(undefined)).to.equal(false)
-    })
-
-    it('Should fail when given null String', () => {
-      expect(finnishBusinessIds.isValidVatNumber(null)).to.equal(false)
-    })
-
-    it('Should fail when given non String', () => {
-      expect(finnishBusinessIds.isValidVatNumber({})).to.equal(false)
-      expect(finnishBusinessIds.isValidVatNumber(Date())).to.equal(false)
-      expect(finnishBusinessIds.isValidVatNumber(3)).to.equal(false)
-      expect(finnishBusinessIds.isValidVatNumber(['a'])).to.equal(false)
-      expect(finnishBusinessIds.isValidVatNumber(NaN)).to.equal(false)
     })
 
     it('Should fail when given almost valid vat number nonsense in the end', () => {

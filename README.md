@@ -65,6 +65,9 @@ FinnishBusinessIds.generateVatNumber()
 Functions
 ---------
 
+- Validation functions return TypeError when unexpected type is passed as a parameter.
+- Using [Flow](https://flowtype.org/) annotations for static type checking
+
 ##### isValidBusinessId(businessId) : string --> boolean
 -Validates parameter given business id (y-tunnus), format: 1234567-8
 
@@ -80,12 +83,19 @@ Functions
 ##### calculateChecksum(idNumbers) : string --> number
 -Calculates checksum for parameter given business id without checksum, format: 1234567
 
+Changelog
+---------
+[CHANGELOG](CHANGELOG.md)
+
 Building
 --------
 
 ```sh
 # Build a distributable, minified UMD library compatible with browsers and Node
 npm run dist
+
+# Run static type checkts using flow
+npm run flow
 
 # Run tests
 npm run test
