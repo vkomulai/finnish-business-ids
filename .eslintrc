@@ -1,11 +1,17 @@
 {
   "parser": "babel-eslint",
   "rules": {
+    "consistent-return": 2,
     "strict": 0,
+    "no-undef": 2,
+    "no-unused-vars": 2,
+    "no-var": 2,
+    "no-console": 2,
     "quotes": [2, "single"]
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "mocha": true
   }
 }
