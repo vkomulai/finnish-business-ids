@@ -25,18 +25,6 @@
     return randomNumber;
   }
 
-  function calculateChecksum(idNumbers) {
-    var sum = 0;
-    for (var i = 0; i < idNumbers.length; i++) {
-      sum += parseInt(idNumbers[i], 10) * MULTIPLIERS[i];
-    }
-    var remainder = sum % 11;
-    if (remainder > 1) {
-      remainder = 11 - remainder;
-    }
-    return remainder;
-  }
-
   var FinnishBusinessIds = {
     isValidBusinessId: function isValidBusinessId(businessId) {
       if (typeof businessId !== 'string' || !BUSINESS_ID_REGEX.test(businessId)) {
@@ -44,7 +32,7 @@
       }
       var givenChecksum = parseInt(businessId.substring(8, 9), 10),
           idNumbers = businessId.substring(0, 7),
-          calculatedChecksum = calculateChecksum(idNumbers);
+          calculatedChecksum = this.calculateChecksum(idNumbers);
 
       return calculatedChecksum === givenChecksum;
     },
@@ -57,14 +45,25 @@
     },
     generateBusinessId: function generateBusinessId() {
       var businessId = randomBusinessIdWithoutChecksum();
-      var checksum = calculateChecksum(businessId);
+      var checksum = this.calculateChecksum(businessId);
       return businessId + '-' + checksum;
     },
     generateVatNumber: function generateVatNumber() {
       var countryCode = 'FI';
       var businessId = randomBusinessIdWithoutChecksum();
-      var checksum = calculateChecksum(businessId);
+      var checksum = this.calculateChecksum(businessId);
       return countryCode + businessId + checksum;
+    },
+    calculateChecksum: function calculateChecksum(idNumbers) {
+      var sum = 0;
+      for (var i = 0; i < idNumbers.length; i++) {
+        sum += parseInt(idNumbers[i], 10) * MULTIPLIERS[i];
+      }
+      var remainder = sum % 11;
+      if (remainder > 1) {
+        remainder = 11 - remainder;
+      }
+      return remainder;
     }
   };
 

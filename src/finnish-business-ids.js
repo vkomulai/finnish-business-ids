@@ -12,18 +12,6 @@ function randomBusinessIdWithoutChecksum() {
   return randomNumber
 }
 
-function calculateChecksum(idNumbers) {
-  let sum = 0
-  for (let i = 0; i < idNumbers.length; i++) {
-    sum += parseInt(idNumbers[i], 10) * MULTIPLIERS[i]
-  }
-  let remainder = sum % 11
-  if (remainder > 1) {
-    remainder = 11 - remainder
-  }
-  return remainder;
-}
-
 const FinnishBusinessIds = {
 
   isValidBusinessId(businessId) {
@@ -32,7 +20,7 @@ const FinnishBusinessIds = {
     }
     const givenChecksum = parseInt(businessId.substring(8,9), 10),
           idNumbers = businessId.substring(0, 7),
-          calculatedChecksum = calculateChecksum(idNumbers)
+          calculatedChecksum = this.calculateChecksum(idNumbers)
 
     return calculatedChecksum === givenChecksum
   },
@@ -47,15 +35,27 @@ const FinnishBusinessIds = {
 
   generateBusinessId() {
     const businessId = randomBusinessIdWithoutChecksum()
-    const checksum = calculateChecksum((businessId))
+    const checksum = this.calculateChecksum((businessId))
     return businessId + '-' + checksum
   },
 
   generateVatNumber() {
     const countryCode = 'FI'
     const businessId = randomBusinessIdWithoutChecksum()
-    const checksum = calculateChecksum((businessId))
+    const checksum = this.calculateChecksum((businessId))
     return countryCode + businessId + checksum
+  },
+
+  calculateChecksum(idNumbers) {
+    let sum = 0
+    for (let i = 0; i < idNumbers.length; i++) {
+      sum += parseInt(idNumbers[i], 10) * MULTIPLIERS[i]
+    }
+    let remainder = sum % 11
+    if (remainder > 1) {
+      remainder = 11 - remainder
+    }
+    return remainder;
   }
 
 }

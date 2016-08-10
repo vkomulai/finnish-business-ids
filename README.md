@@ -77,6 +77,9 @@ Functions
 ##### generateVatNumber() : void --> string
 -Generates a random Finnish vat number
 
+##### calculateChecksum(idNumbers) : string --> number
+-Calculates checksum for parameter given business id without checksum, format: 1234567
+
 Building
 --------
 
