@@ -106,4 +106,10 @@ describe('finnish-business-ids', () => {
     })
   })
 
+  describe('#calculateChecksum', () => {
+    it('Should return valid checksum for business ID', () => {
+        expect(finnishBusinessIds.calculateChecksum('1629284')).to.equal(5)
+    })
+  })
+
 })
