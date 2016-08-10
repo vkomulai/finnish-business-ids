@@ -21,12 +21,12 @@ function calculateChecksum(idNumbers) {
   if (remainder > 1) {
     remainder = 11 - remainder
   }
-  return remainder;
+  return remainder
 }
 
-const FinnishBusinessIds = {
+export default class FinnishBusinessIds {
 
-  isValidBusinessId(businessId) {
+  static isValidBusinessId(businessId) {
     if (typeof businessId !== 'string' || !BUSINESS_ID_REGEX.test(businessId)) {
       return false
     }
@@ -35,29 +35,27 @@ const FinnishBusinessIds = {
           calculatedChecksum = calculateChecksum(idNumbers)
 
     return calculatedChecksum === givenChecksum
-  },
+  }
 
-  isValidVatNumber(vatNumber) {
+  static isValidVatNumber(vatNumber) {
     if (typeof vatNumber !== 'string' || !VAT_NUMBER_REGEX.test(vatNumber)) {
       return false
     }
     const vatAsBusinessId = vatNumber.substring(2,9) + '-' + vatNumber.substring(9,10)
     return this.isValidBusinessId(vatAsBusinessId)
-  },
+  }
 
-  generateBusinessId() {
-    const businessId = randomBusinessIdWithoutChecksum()
-    const checksum = calculateChecksum((businessId))
+  static generateBusinessId() {
+    const businessId = randomBusinessIdWithoutChecksum(),
+          checksum = calculateChecksum((businessId))
     return businessId + '-' + checksum
-  },
+  }
 
-  generateVatNumber() {
-    const countryCode = 'FI'
-    const businessId = randomBusinessIdWithoutChecksum()
-    const checksum = calculateChecksum((businessId))
+  static generateVatNumber() {
+    const countryCode = 'FI',
+          businessId = randomBusinessIdWithoutChecksum(),
+          checksum = calculateChecksum((businessId))
     return countryCode + businessId + checksum
   }
 
 }
-
-module.exports = FinnishBusinessIds

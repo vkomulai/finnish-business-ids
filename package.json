@@ -6,7 +6,7 @@
   "scripts": {
     "dist": "./node_modules/.bin/babel src/finnish-business-ids.js > dist/finnish-business-ids.js && ./node_modules/.bin/uglifyjs dist/finnish-business-ids.js > dist/finnish-business-ids.min.js",
     "lint": "./node_modules/.bin/eslint src/*.js test/*.js",
-    "test": "./node_modules/mocha/bin/mocha test/finnish-business-ids_test.js",
+    "test": "./node_modules/mocha/bin/mocha --compilers js:babel-core/register test/finnish-business-ids_test.js",
     "validate": "npm ls"
   },
   "repository": {
