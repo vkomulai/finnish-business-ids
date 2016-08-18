@@ -8,6 +8,6 @@
 
 ### [2.0.0](https://github.com/vkomulai/finnish-business-utils/releases/tag/v2.0.0)
 
-- Using [Flow](https://flowtype.org/) annotations.
+- Using [Flow](https://flowtype.org/) annotations for additional type safety.
 - Functions return TypeError in case unexpected type is passed as parameter.
 - Bumping major version, because this is breaking backwards compatibility.
