@@ -7,8 +7,7 @@
     "dist": "./node_modules/.bin/babel src/finnish-business-ids.js > dist/finnish-business-ids.js && ./node_modules/.bin/uglifyjs dist/finnish-business-ids.js > dist/finnish-business-ids.min.js",
     "lint": "./node_modules/.bin/eslint src/*.js test/*.js",
     "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha --compilers js:babel-register test/finnish-business-ids_test.js",
-    "validate": "npm ls",
-    "flow": "./node_modules/flow-bin/cli.js; test $? -eq 0 -o $? -eq 2"
+    "flow": "./node_modules/flow-bin/cli.js"
   },
   "repository": {
     "type": "git",
@@ -47,6 +46,7 @@
     "uglify-js": "^2.6.2"
   },
   "pre-commit": [
+    "flow",
     "test",
     "lint"
   ]
