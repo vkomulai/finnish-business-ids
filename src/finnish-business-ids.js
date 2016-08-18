@@ -47,7 +47,7 @@ const FinnishBusinessIds = {
     return countryCode + businessId + checksum
   },
 
-  calculateChecksum(idNumbers) {
+  calculateChecksum(idNumbers: string) {
     let sum = 0
     for (let i = 0; i < idNumbers.length; i++) {
       sum += parseInt(idNumbers[i], 10) * MULTIPLIERS[i]
