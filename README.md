@@ -68,11 +68,13 @@ Functions
 - Validation functions return TypeError when unexpected type is passed as a parameter.
 - Using [Flow](https://flowtype.org/) annotations for static type checking
 
-##### isValidBusinessId(businessId) : string --> boolean
+##### isValidBusinessId(businessId: string) : string --> boolean
 -Validates parameter given business id (y-tunnus), format: 1234567-8
+-A TypeError is thrown in case of non-string parameter
 
-##### isValidVatNumber(vatNumber) : string --> boolean
+##### isValidVatNumber(vatNumber: string) : string --> boolean
 -Validates parameter given Finnish vat number (alv-numero), format: FI12345678
+-A TypeError is thrown in case of non-string parameter
 
 ##### generateBusinessId() : void --> string
 -Generates a random Finnish business id
@@ -80,8 +82,9 @@ Functions
 ##### generateVatNumber() : void --> string
 -Generates a random Finnish vat number
 
-##### calculateChecksum(idNumbers) : string --> number
+##### calculateChecksum(idNumbers: string) : string --> number
 -Calculates checksum for parameter given business id without checksum, format: 1234567
+-A TypeError is thrown in case of non-string parameter
 
 Changelog
 ---------
