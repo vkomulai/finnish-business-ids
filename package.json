@@ -1,6 +1,6 @@
 {
   "name": "finnish-business-ids",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "./dist/finnish-business-ids.js",
   "description": "A micro Javascript library for validating and creating Finnish business ids (Y-tunnus, alv-numero)",
   "scripts": {
@@ -50,7 +50,7 @@
   },
   "pre-commit": [
     "flow",
-    "test",
-    "lint"
+    "lint",
+    "test"
   ]
 }

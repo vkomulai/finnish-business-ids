@@ -16,7 +16,7 @@
   var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
     return typeof obj;
   } : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
   };
 
   var BUSINESS_ID_REGEX = /^[\d]{7}-[\d]$/,
@@ -49,7 +49,7 @@
     isValidVatNumber: function isValidVatNumber(vatNumber) {
       function _isValidVatNumber(_id3) {
         if (!(typeof _id3 === 'boolean')) {
-          throw new TypeError('Function return value violates contract.\n\nExpected:\nbool\n\nGot:\n' + _inspect(_id3));
+          throw new TypeError('Function return value violates contract.\n\nExpected:\nboolean\n\nGot:\n' + _inspect(_id3));
         }
 
         return _id3;
@@ -129,29 +129,19 @@
       return typeof input === 'undefined' ? 'undefined' : _typeof(input);
     } else if (Array.isArray(input)) {
       if (input.length > 0) {
-        var _ret = function () {
-          if (depth > maxDepth) return {
-            v: '[...]'
-          };
+        if (depth > maxDepth) return '[...]';
 
-          var first = _inspect(input[0], depth);
+        var first = _inspect(input[0], depth);
 
-          if (input.every(function (item) {
-            return _inspect(item, depth) === first;
-          })) {
-            return {
-              v: first.trim() + '[]'
-            };
-          } else {
-            return {
-              v: '[' + input.slice(0, maxKeys).map(function (item) {
-                return _inspect(item, depth);
-              }).join(', ') + (input.length >= maxKeys ? ', ...' : '') + ']'
-            };
-          }
-        }();
-
-        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+        if (input.every(function (item) {
+          return _inspect(item, depth) === first;
+        })) {
+          return first.trim() + '[]';
+        } else {
+          return '[' + input.slice(0, maxKeys).map(function (item) {
+            return _inspect(item, depth);
+          }).join(', ') + (input.length >= maxKeys ? ', ...' : '') + ']';
+        }
       } else {
         return 'Array';
       }

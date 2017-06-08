@@ -5,7 +5,7 @@ const BUSINESS_ID_REGEX = /^[\d]{7}-[\d]$/,
       VAT_NUMBER_REGEX = /^FI[\d]{8}$/,
       MULTIPLIERS = [7, 9, 10, 5, 8, 4, 2]
 
-function randomBusinessIdWithoutChecksum() : string {
+function randomBusinessIdWithoutChecksum(): string {
   let randomNumber = ''
   for (let i = 0; i < 7; i++) {
     randomNumber += Math.floor(Math.random() * 9) + 1 //  1...9, because a real number can't begin with zero
@@ -15,7 +15,7 @@ function randomBusinessIdWithoutChecksum() : string {
 
 const FinnishBusinessIds = {
 
-  isValidBusinessId(businessId: string) : boolean {
+  isValidBusinessId(businessId: string): boolean {
     if (!BUSINESS_ID_REGEX.test(businessId)) {
       return false
     }
@@ -26,7 +26,7 @@ const FinnishBusinessIds = {
     return calculatedChecksum === givenChecksum
   },
 
-  isValidVatNumber(vatNumber: string) : boolean {
+  isValidVatNumber(vatNumber: string): boolean {
     if (!VAT_NUMBER_REGEX.test(vatNumber)) {
       return false
     }
@@ -34,20 +34,20 @@ const FinnishBusinessIds = {
     return this.isValidBusinessId(vatAsBusinessId)
   },
 
-  generateBusinessId() : string {
+  generateBusinessId(): string {
     const businessId = randomBusinessIdWithoutChecksum()
     const checksum = this.calculateChecksum((businessId))
     return businessId + '-' + checksum
   },
 
-  generateVatNumber() : string {
+  generateVatNumber(): string {
     const countryCode = 'FI'
     const businessId = randomBusinessIdWithoutChecksum()
     const checksum = this.calculateChecksum((businessId))
     return countryCode + businessId + checksum
   },
 
-  calculateChecksum(idNumbers: string) : number {
+  calculateChecksum(idNumbers: string): number {
     let sum = 0
     for (let i = 0; i < idNumbers.length; i++) {
       sum += parseInt(idNumbers[i], 10) * MULTIPLIERS[i]
