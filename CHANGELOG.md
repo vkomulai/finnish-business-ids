@@ -1,3 +1,8 @@
+### [3.0.0](https://github.com/vkomulai/finnish-business-utils/releases/tag/v3.0.0)
+
+- Usint TypeScript
+- Removed bower support
+
 ### [2.0.1](https://github.com/vkomulai/finnish-business-utils/releases/tag/v2.0.1)
 
 - FIX flow warnings: https://github.com/vkomulai/finnish-business-ids/issues/3
