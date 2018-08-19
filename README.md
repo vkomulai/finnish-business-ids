@@ -48,8 +48,6 @@ Examples
 Functions
 ---------
 
-- Validation functions return TypeError when unexpected type is passed as a parameter.
-
 ##### isValidBusinessId(businessId: string) : boolean
 
 - Validates parameter given business id (y-tunnus), format: 1234567-8
