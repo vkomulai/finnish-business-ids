@@ -23,6 +23,7 @@ Usage
 
 Node.js
 
+Javascript
 ``` js
 const { FinnishBusinessIds } = require('finnish-business-ids')
 
@@ -30,6 +31,7 @@ const validId = FinnishBusinessIds.isValidBusinessId('2617416-4')
 console.log('validId:', validId)
 ```
 
+Typescript
 ``` typescript
 import { FinnishBusinessIds } from 'finnish-business-ids'
 
