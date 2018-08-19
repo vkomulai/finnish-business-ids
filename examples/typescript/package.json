@@ -1,0 +1,14 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "finnish-business-ids": "3.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

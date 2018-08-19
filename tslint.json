@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-config-strict",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+       "examples/**"
+    ]
+  },
+  "rules": {
+    "no-unnecessary-class": [false],
+    "no-magic-numbers": [false],
+    "semicolon": [true, "never"],
+    "quotemark": [true, "single"],
+    "triple-equals": true,
+    "no-implicit-dependencies": [true, "dev"]
+  }
+}

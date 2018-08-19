@@ -4,19 +4,19 @@ Finnish business id and vat number validator/generator
 [![Build Status](https://travis-ci.org/vkomulai/finnish-business-ids.svg?branch=master)](https://travis-ci.org/vkomulai/finnish-business-ids) ![0 deps](https://david-dm.org/vkomulai/finnish-business-ids.svg) ![Downloads](https://img.shields.io/npm/dt/finnish-business-ids.svg) ![License](https://img.shields.io/npm/l/finnish-business-ids.svg)
 
 - A micro library for validating and creating Finnish business ids (y-tunnus, alv-numero)
-- Lightweight, 4.3kB
+- Lightweight, less than 10kb
 - No dependencies
-- ES6 + Babel for compatibility
+- Written in Typescript, typescript types available out-of-the-box
 
 Installation
 ------------
 
 ```sh
 # NPM
-npm install finnish-business-ids
+npm install finnish-business-ids --save
 
-# Bower
-bower install finnish-business-ids
+# yarn 
+yarn add finnish-business-ids
 ```
 
 Usage
@@ -24,67 +24,50 @@ Usage
 
 Node.js
 
+Javascript
 ``` js
-const FinnishBusinessIds = require('finnish-business-ids')
-FinnishBusinessIds.isValidBusinessId('2617416-4')
+const { FinnishBusinessIds } = require('finnish-business-ids')
+
+const validId = FinnishBusinessIds.isValidBusinessId('2617416-4')
+console.log('validId:', validId)
 ```
 
-Browser: Writes FinnishBusinessIds into global namespace.
+Typescript
+``` typescript
+import { FinnishBusinessIds } from 'finnish-business-ids'
 
-``` html
-<script src="finnish-business-ids.min.js"></script>
-<script>
-  FinnishBusinessIds.isValidBusinessId('2617416-4')
-</script>
-
+const validId: boolean = FinnishBusinessIds.isValidBusinessId('2617416-4')
+console.log('validId:', validId)
 ```
 
 Examples
 --------
 
-- [Example page for testing purposes](test/index.html)
-
-```sh
-# Valid isValidVatNumber returns true, allows whitespace
-FinnishBusinessIds.isValidBusinessId('2617416-4')
-// true
-FinnishBusinessIds.isValidVatNumber('FI26174164')
-// true
-```
-
-```sh
-# Generate a Finnish business id (y-tunnus), format: 1234567-8
-FinnishBusinessIds.generateBusinessId()
-// '2617416-4'
-
-# Generate a Finnish vat number (alv-numero), format: FI12345678
-FinnishBusinessIds.generateVatNumber()
-// 'FI26174164'
-```
+- [Typescript examples](examples/typescript/index.ts)
+- [Javascript examples](examples/javascript/index.ts)
 
 Functions
 ---------
 
-- Validation functions return TypeError when unexpected type is passed as a parameter.
-- Using [Flow](https://flowtype.org/) annotations for static type checking
+##### isValidBusinessId(businessId: string) : boolean
 
-##### isValidBusinessId(businessId: string) : string --> boolean
--Validates parameter given business id (y-tunnus), format: 1234567-8
--A TypeError is thrown in case of non-string parameter
+- Validates parameter given business id (y-tunnus), format: 1234567-8
 
-##### isValidVatNumber(vatNumber: string) : string --> boolean
--Validates parameter given Finnish vat number (alv-numero), format: FI12345678
--A TypeError is thrown in case of non-string parameter
+##### isValidVatNumber(vatNumber: string) : boolean
 
-##### generateBusinessId() : void --> string
--Generates a random Finnish business id
+- Validates parameter given Finnish vat number (alv-numero), format: FI12345678
 
-##### generateVatNumber() : void --> string
--Generates a random Finnish vat number
+##### generateBusinessId() : string
 
-##### calculateChecksum(idNumbers: string) : string --> number
--Calculates checksum for parameter given business id without checksum, format: 1234567
--A TypeError is thrown in case of non-string parameter
+- Generates a random Finnish business id
+
+##### generateVatNumber() : string
+
+- Generates a random Finnish vat number
+
+##### calculateChecksum(idNumbers: string) : number
+
+- Calculates checksum for parameter given business id without checksum, format: 1234567
 
 Changelog
 ---------
@@ -94,15 +77,23 @@ Building
 --------
 
 ```sh
-# Build a distributable, minified UMD library compatible with browsers and Node
+# Build a distributable minified library
 npm run dist
 
-# Run static type checkts using flow
-npm run flow
+# Run linter
+npm run lint
 
 # Run tests
 npm run test
 ```
+
+Release a new version
+---------------------
+
+- `npm run dist`
+- Update version number in `package.json`. Follow [semantic versioning](https://docs.npmjs.com/getting-started/semantic-versioning) 
+- `npm publish`
+
 
 License
 -------
