@@ -15,7 +15,7 @@ Installation
 npm install finnish-business-ids --save
 
 # yarn 
-yarn add innish-business-ids
+yarn add finnish-business-ids
 ```
 
 Usage
@@ -91,6 +91,7 @@ Release a new version
 
 - `npm run dist`
 - Update version number in `package.json`. Follow [semantic versioning](https://docs.npmjs.com/getting-started/semantic-versioning) 
+- `npm publish`
 
 
 License
