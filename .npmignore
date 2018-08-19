@@ -1,0 +1,17 @@
+.DS_Store
+# IDE
+.idea/
+.vscode/
+.eclipse/
+.nyc_output/
+
+# Logs
+logs
+*.log
+
+.coverrun
+.coverdata
+coverage
+reports/
+debug/
+node_modules/

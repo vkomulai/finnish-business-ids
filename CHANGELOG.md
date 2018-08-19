@@ -1,4 +1,4 @@
-### [3.0.0](https://github.com/vkomulai/finnish-business-utils/releases/tag/v3.0.0)
+### [3.1.0](https://github.com/vkomulai/finnish-business-utils/releases/tag/v3.1.0)
 
 - Usint TypeScript
 - Removed bower support

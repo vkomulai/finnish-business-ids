@@ -1,6 +1,6 @@
 {
   "name": "finnish-business-ids",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "main": "./dist/finnish-business-ids.js",
   "types": "dist/finnish-business-ids.d.ts",
   "description": "A micro Javascript library for validating and creating Finnish business ids (Y-tunnus, alv-numero)",
@@ -34,6 +34,7 @@
   "devDependencies": {
     "@types/chai": "^4.1.4",
     "@types/mocha": "^5.2.5",
+    "chai": "^4.1.2",
     "mocha": "5.2.0",
     "precommit-hook": "^3.0.0",
     "ts-node": "7.0.0",
@@ -46,8 +47,5 @@
   "pre-commit": [
     "lint",
     "test"
-  ],
-  "dependencies": {
-    "chai": "^4.1.2"
-  }
+  ]
 }
