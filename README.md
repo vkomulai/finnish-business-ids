@@ -6,6 +6,7 @@ Finnish business id and vat number validator/generator
 - A micro library for validating and creating Finnish business ids (y-tunnus, alv-numero)
 - Lightweight, less than 10kb
 - No dependencies
+- Written in Typescript, typescript types available out-of-the-box
 
 Installation
 ------------
