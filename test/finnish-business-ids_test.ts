@@ -30,7 +30,9 @@ describe('finnish-business-ids', () => {
         expect(FinnishBusinessIds.isValidBusinessId(businessId)).to.equal(true)
       })
     })
-
+    it('Should fail when checksum % 11 equels to 1', () => {
+      expect(FinnishBusinessIds.isValidBusinessId('1375045-1')).to.equal(false)
+    })
   })
 
   describe('#isValidVatNumber', () => {

@@ -3,7 +3,13 @@ const VAT_NUMBER_REGEX = /^FI[\d]{8}$/
 const MULTIPLIERS = [7, 9, 10, 5, 8, 4, 2]
 
 function randomBusinessIdWithoutChecksum(): string {
-  return (Math.floor(Math.random() * 1000000) + 1000000).toString()
+  while (true) {
+    const businessId = (Math.floor(Math.random() * 1000000) + 1000000).toString()
+
+    if (FinnishBusinessIds.calculateChecksum(businessId) !== -1) {
+      return businessId
+    }
+  }
 }
 
 export class FinnishBusinessIds {
@@ -49,7 +55,10 @@ export class FinnishBusinessIds {
       sum += parseInt(idNumbers[i], 10) * MULTIPLIERS[i]
     }
     let remainder = sum % 11
-    if (remainder > 1) {
+    if (remainder === 1) {
+      return -1
+    }
+    else if (remainder > 1) {
       remainder = 11 - remainder
     }
     
