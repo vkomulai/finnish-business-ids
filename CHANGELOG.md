@@ -1,4 +1,4 @@
-## [Unreleased]
+### [3.1.1](https://github.com/vkomulai/finnish-business-utils/releases/tag/v3.1.1)
 - Fix case when checksum % 11 == 1
 
 ### [3.1.0](https://github.com/vkomulai/finnish-business-utils/releases/tag/v3.1.0)
